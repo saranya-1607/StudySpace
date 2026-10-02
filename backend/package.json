@@ -1,0 +1,35 @@
+{
+  "name": "studyspace",
+  "version": "1.0.0",
+  "description": "StudySpace is a suite of tools that help students study more effectively.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node local-dev.js",
+    "dev": "nodemon local-dev.js",
+    "test-swagger": "node test-swagger.js",
+    "vercel": "vercel",
+    "vercel-prod": "vercel --prod",
+    "vercel-build": "echo 'Building for Vercel'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=18.x"
+  },
+  "private": false,
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

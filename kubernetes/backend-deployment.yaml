@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: studyspace-backend-deployment
+  labels:
+    app: studyspace-backend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: studyspace-backend
+
+  template:
+    metadata:
+      labels:
+        app: studyspace-backend
+
+    spec:
+      containers:
+        - name: studyspace-backend
+          image: studyspace-backend:latest
+
+          ports:
+            - containerPort: 5000
+
+          env:
+            - name: NODE_ENV
+              value: "production"

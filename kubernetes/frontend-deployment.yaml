@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: studyspace-frontend-deployment
+  labels:
+    app: studyspace-frontend
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: studyspace-frontend
+
+  template:
+    metadata:
+      labels:
+        app: studyspace-frontend
+
+    spec:
+      containers:
+        - name: studyspace-frontend
+          image: studyspace-frontend:latest
+
+          ports:
+            - containerPort: 3001

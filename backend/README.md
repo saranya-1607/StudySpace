@@ -94,7 +94,7 @@ Full API documentation is available at `/api-docs` (Swagger UI).
 ### Base URL
 
 - **Local**: `http://localhost:5000/api`
-- **Production**: `https://your-project.vercel.app/api`
+- **Production**: `https://studyspace-backend-abxkaidz1-saranyas-projects-6de1b52c.vercel.app/api`
 
 ### Authentication
 
@@ -334,8 +334,8 @@ StudySpace Team
 
 ## 🔗 Links
 
-- [Frontend Repository](../frontend/study-space-frontend)
-- [API Documentation](http://localhost:5000/api-docs)
+- **Frontend Repository**: `https://github.com/saranya-1607/StudySpace/tree/main/frontend/study-space-frontend`
+- **API Documentation**: `https://studyspace-backend-abxkaidz1-saranyas-projects-6de1b52c.vercel.app/api-docs`
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
 - [Vercel](https://vercel.com)
 

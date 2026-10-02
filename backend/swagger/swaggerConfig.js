@@ -6,7 +6,7 @@ const swaggerDefinition = {
     title: "StudySpace API",
     version: "1.0.0",
     description:
-      "API documentation for the StudySpace app - A comprehensive study management platform with materials, quizzes, progress tracking, goals, and planner.",
+      "API documentation for the StudySpace platform - A comprehensive study management platform with materials, quizzes, progress tracking, goals, and planner.",
     contact: {
       name: "StudySpace Team",
       email: "support@studyspace.com",
@@ -22,7 +22,7 @@ const swaggerDefinition = {
         process.env.VERCEL_URL && !process.env.VERCEL_URL.includes("localhost")
           ? `https://${process.env.VERCEL_URL}`
           : process.env.NODE_ENV === "production"
-            ? "https://studysync-backend-l7jev7bwe-hoangsonw.vercel.app"
+            ? "https://studyspace-backend-abxkaidz1-saranyas-projects-6de1b52c.vercel.app"
             : "http://localhost:5000",
       description:
         process.env.NODE_ENV === "production"

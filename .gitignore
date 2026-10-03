@@ -1,0 +1,16 @@
+# Backend environment variables
+/backend/.env
+
+# Node.js dependencies
+/backend/node_modules
+/node_modules
+
+# Frontend environment variables
+/frontend/study-space-app/.env
+/frontend/study-space-frontend/.env
+
+# Vercel local configuration
+.vercel
+
+# Local environment files
+.env*.local

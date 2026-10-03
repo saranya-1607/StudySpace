@@ -11,7 +11,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # StudySpace Backend API
-API_BASE="https://studyspace-backend-abxkaidz1-saranyas-projects-6de1b52c.vercel.app"
+API_BASE="https://studyspace-backend-delta.vercel.app"
 
 echo -e "${BLUE}╔════════════════════════════════════════╗${NC}"
 echo -e "${BLUE}║       StudySpace API Tests             ║${NC}"

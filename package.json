@@ -1,0 +1,45 @@
+{
+  "name": "studyspace-app",
+  "version": "1.1.0",
+  "description": "StudySpace is a suite of tools that help students study more effectively.",
+  "scripts": {
+    "start": "cd frontend/study-space-frontend && npm run serve",
+    "dev": "cd frontend/study-space-frontend && npm run serve",
+    "format": "prettier --write .",
+    "test": "cd frontend/study-space-frontend && npm run serve",
+    "frontend": "cd frontend/study-space-frontend && npm run serve",
+    "backend": "cd backend && npm start"
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saranya-1607/StudySpace.git"
+  },
+  "keywords": [
+    "StudySpace",
+    "Study Buddy",
+    "Study App",
+    "Study Tools"
+  ],
+  "author": "StudySpace Team",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saranya-1607/StudySpace/issues"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.21.0",
+    "@vue/cli-service": "^5.0.8",
+    "axios": "^1.7.7",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.1",
+    "nodemon": "^3.1.7",
+    "prettier": "^3.3.3",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
+  }
+}

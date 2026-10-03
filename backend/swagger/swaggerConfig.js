@@ -22,7 +22,7 @@ const swaggerDefinition = {
         process.env.VERCEL_URL && !process.env.VERCEL_URL.includes("localhost")
           ? `https://${process.env.VERCEL_URL}`
           : process.env.NODE_ENV === "production"
-            ? "https://studyspace-backend-abxkaidz1-saranyas-projects-6de1b52c.vercel.app"
+            ?"https://studyspace-backend-delta.vercel.app"
             : "http://localhost:5000",
       description:
         process.env.NODE_ENV === "production"

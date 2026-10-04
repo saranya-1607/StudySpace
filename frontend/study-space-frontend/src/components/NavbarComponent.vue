@@ -334,7 +334,7 @@ export default {
 
       try {
         await axios.get(
-          "https://studysync-backend-api.vercel.app/api/profile",
+          "https://studyspace-backend-delta.vercel.app/api/profile",
           {
             headers: { Authorization: `Bearer ${token}` },
           },

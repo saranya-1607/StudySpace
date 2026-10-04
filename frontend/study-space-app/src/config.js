@@ -5,11 +5,11 @@
 
 // Backend API Base URL
 export const API_BASE_URL =
-  process.env.VUE_APP_API_URL || "https://studysync-backend-api.vercel.app/api";
+  process.env.VUE_APP_API_URL || "https://studyspace-backend-delta.vercel.app/api";
 
 // Full backend URL (without /api)
 export const BACKEND_URL =
-  process.env.VUE_APP_BACKEND_URL || "https://studysync-backend-api.vercel.app";
+  process.env.VUE_APP_BACKEND_URL || "https://studyspace-backend-delta.vercel.app";
 
 // API Endpoints
 export const API_ENDPOINTS = {

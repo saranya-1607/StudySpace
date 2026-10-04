@@ -107,7 +107,7 @@ export default {
     async verifyEmail() {
       try {
         const response = await axios.post(
-          "https://studysync-backend-api.vercel.app/api/auth/verify-email",
+         "https://studyspace-backend-delta.vercel.app/api/auth/verify-email",
           { email: this.email },
         );
 
@@ -131,7 +131,7 @@ export default {
 
       try {
         await axios.post(
-          "https://studysync-backend-api.vercel.app/api/auth/reset-password",
+          "https://studyspace-backend-delta.vercel.app/api/auth/reset-password",
           { email: this.email, newPassword: this.newPassword },
         );
 

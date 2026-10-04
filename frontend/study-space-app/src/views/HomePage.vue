@@ -633,9 +633,9 @@ export default {
         return;
       }
       try {
-        const response = await axios.get(
-          `https://studysync-backend-api.vercel.app/api/cities?query=${this.city}`,
-        );
+       const response = await axios.get(
+  `https://studyspace-backend-delta.vercel.app/api/cities?query=${this.city}`,
+);
         this.citySuggestions = response.data.cities.map((city) => ({
           displayName: `${city.name}, ${city.state ? city.state + ", " : ""}${city.country}`,
           fullCity: city,
@@ -660,7 +660,7 @@ export default {
 
         // Make an API request to get the user's profile
         const response = await axios.get(
-          "https://studysync-backend-api.vercel.app/api/profile",
+          "https://studyspace-backend-delta.vercel.app/api/profile"
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -797,7 +797,7 @@ export default {
           return;
         }
         const response = await axios.get(
-          `https://studysync-backend-api.vercel.app/api/music?searchTerm=${this.mood}`,
+            `https://studyspace-backend-delta.vercel.app/api/music?searchTerm=${this.mood}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           },
@@ -838,7 +838,7 @@ export default {
 
         // Call the backend API for weather data
         const response = await axios.get(
-          `https://studysync-backend-api.vercel.app/api/weather?city=${this.city}`,
+          `https://studyspace-backend-delta.vercel.app/api/weather?city=${this.city}`,
         );
 
         // Check if the response was successful and contains data

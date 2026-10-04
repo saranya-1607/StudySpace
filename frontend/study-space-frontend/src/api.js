@@ -2,7 +2,7 @@ import axios from "axios";
 
 // API Configuration - Update this to your deployed backend URL
 const API_BASE_URL =
-  process.env.VUE_APP_API_URL || "https://studysync-backend-api.vercel.app/api";
+  process.env.VUE_APP_API_URL ||"https://studyspace-backend-delta.vercel.app/api";
 
 const api = axios.create({
   baseURL: API_BASE_URL,

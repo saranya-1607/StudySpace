@@ -2,44 +2,53 @@
   <v-footer color="indigo darken-4" dark>
     <v-container>
       <v-row justify="center" align="center" class="footer-content">
+
         <!-- Footer Text -->
         <v-col cols="12" md="6" class="text-center mb-2 footer-text">
           <p>&copy; {{ currentYear }} StudySpace. All rights reserved.</p>
         </v-col>
+
         <!-- Social Media Icons -->
         <v-col cols="12" md="6" class="text-center footer-icons">
+
+          <!-- GitHub Icon -->
           <a
             href="https://github.com/saranya-1607/StudySpace"
             target="_blank"
+            rel="noopener noreferrer"
             class="footer-icon-link"
           >
             <v-icon small class="footer-icon">mdi-github</v-icon>
-            <!-- GitHub Icon -->
           </a>
+
+          <!-- Website Icon -->
           <a
-            href="https://github.com/saranya-1607/StudySpace"
+            href="https://studyspace-platform.vercel.app/"
             target="_blank"
+            rel="noopener noreferrer"
             class="footer-icon-link"
           >
             <v-icon small class="footer-icon">mdi-web</v-icon>
-            <!-- Website Icon -->
           </a>
+
+          <!-- Email Icon -->
           <a
             href="mailto:asaranya131@gmail.com"
-            target="_blank"
             class="footer-icon-link"
           >
             <v-icon small class="footer-icon">mdi-email</v-icon>
-            <!-- Email Icon -->
           </a>
+
+          <!-- LinkedIn Icon -->
           <a
             href="https://www.linkedin.com/in/a-saranya-19a06529b/"
             target="_blank"
+            rel="noopener noreferrer"
             class="footer-icon-link"
           >
             <v-icon small class="footer-icon">mdi-linkedin</v-icon>
-            <!-- LinkedIn Icon -->
           </a>
+
         </v-col>
       </v-row>
     </v-container>
@@ -49,9 +58,10 @@
 <script>
 export default {
   name: "FooterComponent",
+
   data() {
     return {
-      currentYear: new Date().getFullYear(), // Dynamically fetch the current year
+      currentYear: new Date().getFullYear(),
     };
   },
 };
@@ -111,26 +121,26 @@ export default {
 /* Responsive Adjustments */
 @media (max-width: 600px) {
   .footer-text p {
-    font-size: 0.9em; /* Make text smaller on small screens */
+    font-size: 0.9em;
   }
 
   .footer-icons {
-    gap: 15px; /* Reduce icon gap on smaller screens */
+    gap: 15px;
     margin-top: 10px;
   }
 
   .footer-icon {
-    font-size: 1.3em; /* Adjust icon size on mobile */
+    font-size: 1.3em;
   }
 }
 
 @media (min-width: 601px) {
   .footer-text p {
-    font-size: 1em; /* Maintain standard size for larger screens */
+    font-size: 1em;
   }
 
   .footer-icon {
-    font-size: 1.5em; /* Regular icon size */
+    font-size: 1.5em;
   }
 }
 </style>

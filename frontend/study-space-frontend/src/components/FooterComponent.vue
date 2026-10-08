@@ -9,7 +9,7 @@
         <!-- Social Media Icons -->
         <v-col cols="12" md="6" class="text-center footer-icons">
           <a
-            href="https://github.com/hoangsonww"
+            href="https://github.com/saranya-1607/StudySpace"
             target="_blank"
             class="footer-icon-link"
           >
@@ -17,7 +17,7 @@
             <!-- GitHub Icon -->
           </a>
           <a
-            href="https://sonnguyenhoang.com"
+            href="https://github.com/saranya-1607/StudySpace"
             target="_blank"
             class="footer-icon-link"
           >
@@ -33,7 +33,7 @@
             <!-- Email Icon -->
           </a>
           <a
-            href="https://www.linkedin.com/in/hoangsonw"
+            href="https://www.linkedin.com/in/a-saranya-19a06529b/"
             target="_blank"
             class="footer-icon-link"
           >

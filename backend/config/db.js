@@ -1,17 +1,27 @@
 const mongoose = require("mongoose");
-require("dotenv").config();
+
+const cached = global._mongoose || (global._mongoose = { conn: null, promise: null });
 
 const connectDB = async () => {
-  try {
-    await mongoose.connect(process.env.MONGO_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
+  if (cached.conn) return cached.conn;
+
+  const uri = process.env.MONGODB_URI || process.env.MONGO_URI;
+  if (!uri) throw new Error("MongoDB URI env variable is not set in Vercel");
+
+  if (!cached.promise) {
+    cached.promise = mongoose.connect(uri, {
+      bufferCommands: false,
+      serverSelectionTimeoutMS: 8000,
     });
-    console.log("MongoDB connected");
-  } catch (error) {
-    console.error("Database connection error:", error);
-    process.exit(1);
   }
+
+  try {
+    cached.conn = await cached.promise;
+  } catch (err) {
+    cached.promise = null;
+    throw err;
+  }
+  return cached.conn;
 };
 
 module.exports = connectDB;

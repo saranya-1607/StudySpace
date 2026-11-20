@@ -10,7 +10,7 @@ const allowedOrigins = [
   "http://localhost:8080",
 ];
 
-// 1) Manual CORS: answers preflight immediately, before anything can crash
+// 1) Manual CORS: answers preflight immediately
 app.use((req, res, next) => {
   const origin = req.headers.origin;
   if (origin && allowedOrigins.includes(origin)) {
@@ -36,25 +36,52 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 2) Load modules safely so a crash shows a readable error instead of a 500 page
-let connectDB, routes, swaggerSpec, swaggerUi;
+// 2) Load modules safely so a crash shows a readable error
+let connectDB, routes, swaggerSpec;
 const loadErrors = [];
 
 try { connectDB = require("../config/db"); } catch (e) { loadErrors.push("db: " + e.message); }
 try { routes = require("../routes/routes"); } catch (e) { loadErrors.push("routes: " + e.message); }
-try {
-  swaggerSpec = require("../swagger/swaggerConfig");
-  swaggerUi = require("swagger-ui-express");
-} catch (e) { loadErrors.push("swagger: " + e.message); }
+try { swaggerSpec = require("../swagger/swaggerConfig"); } catch (e) { loadErrors.push("swagger: " + e.message); }
 
-// 3) Health check (no DB needed)
+// 3) Routes that don't need the database
 app.get("/health", (req, res) =>
-  res.json({ status: "ok", version: "final-v5", loadErrors })
+  res.json({ status: "ok", version: "final-v7", loadErrors })
 );
 
-// 4) If any module failed to load, show why
+app.get("/swagger.json", (req, res) => {
+  if (!swaggerSpec) return res.status(500).json({ error: "Swagger spec failed to load" });
+  res.json(swaggerSpec);
+});
+
+app.get("/api-docs", (req, res) => {
+  res.type("html").send(`<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>StudySpace API Documentation</title>
+  <link rel="stylesheet" href="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui.css" />
+  <style>.swagger-ui .topbar { background-color: #3949ab; }</style>
+</head>
+<body>
+  <div id="swagger-ui"></div>
+  <script src="https://unpkg.com/swagger-ui-dist@5.17.14/swagger-ui-bundle.js"></script>
+  <script>
+    window.onload = () => {
+      window.ui = SwaggerUIBundle({ url: "/swagger.json", dom_id: "#swagger-ui" });
+    };
+  </script>
+</body>
+</html>`);
+});
+
+app.get("/", (req, res) => res.redirect("/api-docs"));
+
+// 4) If routes or db failed to load, show why
 app.use((req, res, next) => {
-  if (loadErrors.length) return res.status(500).json({ success: false, loadErrors });
+  if (!connectDB || !routes) {
+    return res.status(500).json({ success: false, loadErrors });
+  }
   next();
 });
 
@@ -73,26 +100,10 @@ app.use(async (req, res, next) => {
   }
 });
 
-app.get("/", (req, res) => res.redirect("/api-docs"));
-
-if (swaggerUi && swaggerSpec) {
-  app.use(
-    "/api-docs",
-    swaggerUi.serve,
-    swaggerUi.setup(swaggerSpec, {
-      customCss: `
-        .swagger-ui .topbar { background-color: #3949ab; }
-        .swagger-ui .topbar-wrapper .link { color: white !important; }
-      `,
-      customSiteTitle: "StudySpace API Documentation",
-    })
-  );
-  app.get("/swagger.json", (req, res) => res.json(swaggerSpec));
-}
-
+// 6) API routes
 app.use("/api", routes);
 
-// 6) Error handler
+// 7) Error handler
 app.use((err, req, res, next) => {
   console.error(err.stack);
   res.status(500).json({ success: false, message: err.message });
